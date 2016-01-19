@@ -1,0 +1,2 @@
+run.number,date_time.run,process.count,random.seed,human.count,zombie.count,min.x,min.y,max.x,max.y,proc.per.x,proc.per.y,grid.buffer,init.time,stop.at,run.time
+,19.01.2016 19:28:08,4,1453228088,500;,5;,-100,-100,99,99,2,2,2,0.01,10,0.28

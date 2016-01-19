@@ -1,0 +1,253 @@
+19.01.2016 19:28:08 [0] INFO root TICK BEGINS: 1
+19.01.2016 19:28:08 [0] INFO root TICK ENDS: 1
+19.01.2016 19:28:08 [0] INFO root TICK BEGINS: 2
+19.01.2016 19:28:08 [0] INFO root TICK ENDS: 2
+19.01.2016 19:28:08 [0] INFO root TICK BEGINS: 3
+19.01.2016 19:28:08 [0] INFO root TICK ENDS: 3
+19.01.2016 19:28:08 [0] INFO root TICK BEGINS: 4
+19.01.2016 19:28:08 [0] INFO root TICK ENDS: 4
+19.01.2016 19:28:08 [0] INFO root TICK BEGINS: 5
+19.01.2016 19:28:08 [0] INFO root TICK ENDS: 5
+19.01.2016 19:28:08 [0] INFO root TICK BEGINS: 6
+19.01.2016 19:28:08 [0] INFO root TICK ENDS: 6
+19.01.2016 19:28:08 [0] INFO root TICK BEGINS: 7
+19.01.2016 19:28:08 [0] INFO root TICK ENDS: 7
+19.01.2016 19:28:08 [0] INFO root TICK BEGINS: 8
+19.01.2016 19:28:08 [0] INFO root TICK ENDS: 8
+19.01.2016 19:28:08 [0] INFO root TICK BEGINS: 9
+19.01.2016 19:28:08 [0] INFO root TICK ENDS: 9
+19.01.2016 19:28:08 [0] INFO root TICK BEGINS: 10
+19.01.2016 19:28:08 [0] INFO root TICK ENDS: 10
+19.01.2016 19:28:08 [0] INFO root date_time.run = 19.01.2016 19:28:08
+19.01.2016 19:28:08 [0] INFO root distribution.zombie_move = int_uniform, 0, 2
+19.01.2016 19:28:08 [0] INFO root grid.buffer = 2
+19.01.2016 19:28:08 [0] INFO root human.count = 500;
+19.01.2016 19:28:08 [0] INFO root init.time = 0.01
+19.01.2016 19:28:08 [0] INFO root max.x = 99
+19.01.2016 19:28:08 [0] INFO root max.y = 99
+19.01.2016 19:28:08 [0] INFO root min.x = -100
+19.01.2016 19:28:08 [0] INFO root min.y = -100
+19.01.2016 19:28:08 [0] INFO root proc.per.x = 2
+19.01.2016 19:28:08 [0] INFO root proc.per.y = 2
+19.01.2016 19:28:08 [0] INFO root process.count = 4
+19.01.2016 19:28:08 [0] INFO root random.seed = 1453228088
+19.01.2016 19:28:08 [0] INFO root run.time = 0.28
+19.01.2016 19:28:08 [0] INFO root stop.at = 10
+19.01.2016 19:28:08 [0] INFO root zombie.count = 5;
+19.01.2016 19:29:20 [0] INFO root Starting...
+19.01.2016 19:29:20 [0] INFO root init, time: 0.0399999999999999999992
+19.01.2016 19:29:20 [0] INFO root Tick: 1
+19.01.2016 19:29:20 [0] INFO root Tick: 2
+19.01.2016 19:29:20 [0] INFO root Tick: 3
+19.01.2016 19:29:20 [0] INFO root Tick: 4
+19.01.2016 19:29:20 [0] INFO root Tick: 5
+19.01.2016 19:29:20 [0] INFO root Tick: 6
+19.01.2016 19:29:20 [0] INFO root Tick: 7
+19.01.2016 19:29:20 [0] INFO root Tick: 8
+19.01.2016 19:29:20 [0] INFO root Tick: 9
+19.01.2016 19:29:20 [0] INFO root Tick: 10
+19.01.2016 19:29:20 [0] INFO root Tick: 11
+19.01.2016 19:29:20 [0] INFO root Tick: 12
+19.01.2016 19:29:20 [0] INFO root Tick: 13
+19.01.2016 19:29:20 [0] INFO root Tick: 14
+19.01.2016 19:29:20 [0] INFO root Tick: 15
+19.01.2016 19:29:20 [0] INFO root Tick: 16
+19.01.2016 19:29:20 [0] INFO root Tick: 17
+19.01.2016 19:29:20 [0] INFO root Tick: 18
+19.01.2016 19:29:20 [0] INFO root Tick: 19
+19.01.2016 19:29:20 [0] INFO root Tick: 20
+19.01.2016 19:29:20 [0] INFO root Tick: 21
+19.01.2016 19:29:20 [0] INFO root Tick: 22
+19.01.2016 19:29:20 [0] INFO root Tick: 23
+19.01.2016 19:29:20 [0] INFO root Tick: 24
+19.01.2016 19:29:20 [0] INFO root Tick: 25
+19.01.2016 19:29:20 [0] INFO root Tick: 26
+19.01.2016 19:29:20 [0] INFO root Tick: 27
+19.01.2016 19:29:20 [0] INFO root Tick: 28
+19.01.2016 19:29:20 [0] INFO root Tick: 29
+19.01.2016 19:29:20 [0] INFO root Tick: 30
+19.01.2016 19:29:20 [0] INFO root Tick: 31
+19.01.2016 19:29:20 [0] INFO root Tick: 32
+19.01.2016 19:29:20 [0] INFO root Tick: 33
+19.01.2016 19:29:20 [0] INFO root Tick: 34
+19.01.2016 19:29:20 [0] INFO root Tick: 35
+19.01.2016 19:29:20 [0] INFO root Tick: 36
+19.01.2016 19:29:20 [0] INFO root Tick: 37
+19.01.2016 19:29:20 [0] INFO root Tick: 38
+19.01.2016 19:29:20 [0] INFO root Tick: 39
+19.01.2016 19:29:20 [0] INFO root Tick: 40
+19.01.2016 19:29:20 [0] INFO root Tick: 41
+19.01.2016 19:29:20 [0] INFO root Tick: 42
+19.01.2016 19:29:20 [0] INFO root Tick: 43
+19.01.2016 19:29:20 [0] INFO root Tick: 44
+19.01.2016 19:29:20 [0] INFO root Tick: 45
+19.01.2016 19:29:20 [0] INFO root Tick: 46
+19.01.2016 19:29:20 [0] INFO root Tick: 47
+19.01.2016 19:29:20 [0] INFO root Tick: 48
+19.01.2016 19:29:20 [0] INFO root Tick: 49
+19.01.2016 19:29:20 [0] INFO root Tick: 50
+19.01.2016 19:29:20 [0] INFO root Tick: 51
+19.01.2016 19:29:20 [0] INFO root Tick: 52
+19.01.2016 19:29:20 [0] INFO root Tick: 53
+19.01.2016 19:29:20 [0] INFO root Tick: 54
+19.01.2016 19:29:20 [0] INFO root Tick: 55
+19.01.2016 19:29:20 [0] INFO root Tick: 56
+19.01.2016 19:29:20 [0] INFO root Tick: 57
+19.01.2016 19:29:20 [0] INFO root Tick: 58
+19.01.2016 19:29:20 [0] INFO root Tick: 59
+19.01.2016 19:29:20 [0] INFO root Tick: 60
+19.01.2016 19:29:20 [0] INFO root Tick: 61
+19.01.2016 19:29:20 [0] INFO root Tick: 62
+19.01.2016 19:29:20 [0] INFO root Tick: 63
+19.01.2016 19:29:20 [0] INFO root Tick: 64
+19.01.2016 19:29:20 [0] INFO root Tick: 65
+19.01.2016 19:29:20 [0] INFO root Tick: 66
+19.01.2016 19:29:20 [0] INFO root Tick: 67
+19.01.2016 19:29:20 [0] INFO root Tick: 68
+19.01.2016 19:29:20 [0] INFO root Tick: 69
+19.01.2016 19:29:20 [0] INFO root Tick: 70
+19.01.2016 19:29:20 [0] INFO root Tick: 71
+19.01.2016 19:29:20 [0] INFO root Tick: 72
+19.01.2016 19:29:20 [0] INFO root Tick: 73
+19.01.2016 19:29:20 [0] INFO root Tick: 74
+19.01.2016 19:29:20 [0] INFO root Tick: 75
+19.01.2016 19:29:20 [0] INFO root Tick: 76
+19.01.2016 19:29:20 [0] INFO root Tick: 77
+19.01.2016 19:29:20 [0] INFO root Tick: 78
+19.01.2016 19:29:20 [0] INFO root Tick: 79
+19.01.2016 19:29:20 [0] INFO root Tick: 80
+19.01.2016 19:29:20 [0] INFO root Tick: 81
+19.01.2016 19:29:20 [0] INFO root Tick: 82
+19.01.2016 19:29:20 [0] INFO root Tick: 83
+19.01.2016 19:29:20 [0] INFO root Tick: 84
+19.01.2016 19:29:20 [0] INFO root Tick: 85
+19.01.2016 19:29:20 [0] INFO root Tick: 86
+19.01.2016 19:29:20 [0] INFO root Tick: 87
+19.01.2016 19:29:20 [0] INFO root Tick: 88
+19.01.2016 19:29:20 [0] INFO root Tick: 89
+19.01.2016 19:29:20 [0] INFO root Tick: 90
+19.01.2016 19:29:20 [0] INFO root Tick: 91
+19.01.2016 19:29:20 [0] INFO root Tick: 92
+19.01.2016 19:29:20 [0] INFO root Tick: 93
+19.01.2016 19:29:20 [0] INFO root Tick: 94
+19.01.2016 19:29:20 [0] INFO root Tick: 95
+19.01.2016 19:29:20 [0] INFO root Tick: 96
+19.01.2016 19:29:20 [0] INFO root Tick: 97
+19.01.2016 19:29:20 [0] INFO root Tick: 98
+19.01.2016 19:29:20 [0] INFO root Tick: 99
+19.01.2016 19:29:20 [0] INFO root Tick: 100
+19.01.2016 19:29:20 [0] INFO root Tick: 101
+19.01.2016 19:29:20 [0] INFO root Tick: 102
+19.01.2016 19:29:20 [0] INFO root Tick: 103
+19.01.2016 19:29:20 [0] INFO root Tick: 104
+19.01.2016 19:29:20 [0] INFO root Tick: 105
+19.01.2016 19:29:20 [0] INFO root Tick: 106
+19.01.2016 19:29:20 [0] INFO root Tick: 107
+19.01.2016 19:29:20 [0] INFO root Tick: 108
+19.01.2016 19:29:20 [0] INFO root Tick: 109
+19.01.2016 19:29:20 [0] INFO root Tick: 110
+19.01.2016 19:29:20 [0] INFO root Tick: 111
+19.01.2016 19:29:20 [0] INFO root Tick: 112
+19.01.2016 19:29:20 [0] INFO root Tick: 113
+19.01.2016 19:29:20 [0] INFO root Tick: 114
+19.01.2016 19:29:20 [0] INFO root Tick: 115
+19.01.2016 19:29:20 [0] INFO root Tick: 116
+19.01.2016 19:29:20 [0] INFO root Tick: 117
+19.01.2016 19:29:20 [0] INFO root Tick: 118
+19.01.2016 19:29:20 [0] INFO root Tick: 119
+19.01.2016 19:29:20 [0] INFO root Tick: 120
+19.01.2016 19:29:20 [0] INFO root Tick: 121
+19.01.2016 19:29:20 [0] INFO root Tick: 122
+19.01.2016 19:29:20 [0] INFO root Tick: 123
+19.01.2016 19:29:20 [0] INFO root Tick: 124
+19.01.2016 19:29:20 [0] INFO root Tick: 125
+19.01.2016 19:29:20 [0] INFO root Tick: 126
+19.01.2016 19:29:20 [0] INFO root Tick: 127
+19.01.2016 19:29:20 [0] INFO root Tick: 128
+19.01.2016 19:29:20 [0] INFO root Tick: 129
+19.01.2016 19:29:20 [0] INFO root Tick: 130
+19.01.2016 19:29:20 [0] INFO root Tick: 131
+19.01.2016 19:29:20 [0] INFO root Tick: 132
+19.01.2016 19:29:20 [0] INFO root Tick: 133
+19.01.2016 19:29:20 [0] INFO root Tick: 134
+19.01.2016 19:29:20 [0] INFO root Tick: 135
+19.01.2016 19:29:20 [0] INFO root Tick: 136
+19.01.2016 19:29:20 [0] INFO root Tick: 137
+19.01.2016 19:29:20 [0] INFO root Tick: 138
+19.01.2016 19:29:20 [0] INFO root Tick: 139
+19.01.2016 19:29:20 [0] INFO root Tick: 140
+19.01.2016 19:29:20 [0] INFO root Tick: 141
+19.01.2016 19:29:20 [0] INFO root Tick: 142
+19.01.2016 19:29:20 [0] INFO root Tick: 143
+19.01.2016 19:29:20 [0] INFO root Tick: 144
+19.01.2016 19:29:20 [0] INFO root Tick: 145
+19.01.2016 19:29:20 [0] INFO root Tick: 146
+19.01.2016 19:29:20 [0] INFO root Tick: 147
+19.01.2016 19:29:20 [0] INFO root Tick: 148
+19.01.2016 19:29:20 [0] INFO root Tick: 149
+19.01.2016 19:29:20 [0] INFO root Tick: 150
+19.01.2016 19:29:20 [0] INFO root Tick: 151
+19.01.2016 19:29:20 [0] INFO root Tick: 152
+19.01.2016 19:29:20 [0] INFO root Tick: 153
+19.01.2016 19:29:20 [0] INFO root Tick: 154
+19.01.2016 19:29:20 [0] INFO root Tick: 155
+19.01.2016 19:29:20 [0] INFO root Tick: 156
+19.01.2016 19:29:20 [0] INFO root Tick: 157
+19.01.2016 19:29:20 [0] INFO root Tick: 158
+19.01.2016 19:29:20 [0] INFO root Tick: 159
+19.01.2016 19:29:20 [0] INFO root Tick: 160
+19.01.2016 19:29:20 [0] INFO root Tick: 161
+19.01.2016 19:29:20 [0] INFO root Tick: 162
+19.01.2016 19:29:20 [0] INFO root Tick: 163
+19.01.2016 19:29:20 [0] INFO root Tick: 164
+19.01.2016 19:29:20 [0] INFO root Tick: 165
+19.01.2016 19:29:20 [0] INFO root Tick: 166
+19.01.2016 19:29:20 [0] INFO root Tick: 167
+19.01.2016 19:29:20 [0] INFO root Tick: 168
+19.01.2016 19:29:20 [0] INFO root Tick: 169
+19.01.2016 19:29:20 [0] INFO root Tick: 170
+19.01.2016 19:29:20 [0] INFO root Tick: 171
+19.01.2016 19:29:20 [0] INFO root Tick: 172
+19.01.2016 19:29:20 [0] INFO root Tick: 173
+19.01.2016 19:29:20 [0] INFO root Tick: 174
+19.01.2016 19:29:20 [0] INFO root Tick: 175
+19.01.2016 19:29:20 [0] INFO root Tick: 176
+19.01.2016 19:29:20 [0] INFO root Tick: 177
+19.01.2016 19:29:20 [0] INFO root Tick: 178
+19.01.2016 19:29:20 [0] INFO root Tick: 179
+19.01.2016 19:29:20 [0] INFO root Tick: 180
+19.01.2016 19:29:20 [0] INFO root Tick: 181
+19.01.2016 19:29:20 [0] INFO root Tick: 182
+19.01.2016 19:29:20 [0] INFO root Tick: 183
+19.01.2016 19:29:20 [0] INFO root Tick: 184
+19.01.2016 19:29:20 [0] INFO root Tick: 185
+19.01.2016 19:29:20 [0] INFO root Tick: 186
+19.01.2016 19:29:20 [0] INFO root Tick: 187
+19.01.2016 19:29:20 [0] INFO root Tick: 188
+19.01.2016 19:29:20 [0] INFO root Tick: 189
+19.01.2016 19:29:20 [0] INFO root Tick: 190
+19.01.2016 19:29:20 [0] INFO root Tick: 191
+19.01.2016 19:29:20 [0] INFO root Tick: 192
+19.01.2016 19:29:20 [0] INFO root Tick: 193
+19.01.2016 19:29:20 [0] INFO root Tick: 194
+19.01.2016 19:29:20 [0] INFO root Tick: 195
+19.01.2016 19:29:20 [0] INFO root Tick: 196
+19.01.2016 19:29:20 [0] INFO root Tick: 197
+19.01.2016 19:29:20 [0] INFO root Tick: 198
+19.01.2016 19:29:20 [0] INFO root Tick: 199
+19.01.2016 19:29:20 [0] INFO root Tick: 200
+19.01.2016 19:29:20 [0] INFO root Total rumored nodes: 1985
+19.01.2016 19:29:20 [0] INFO root avg-non_local.node.count = 522.75
+19.01.2016 19:29:20 [0] INFO root distribution.triangle = triangle, 2, 5, 10
+19.01.2016 19:29:20 [0] INFO root distribution.uni_0_1 = double_uniform, 0, 1
+19.01.2016 19:29:20 [0] INFO root initial.nodes = 10
+19.01.2016 19:29:20 [0] INFO root ke.model.m = 10
+19.01.2016 19:29:20 [0] INFO root node.count = 10000
+19.01.2016 19:29:20 [0] INFO root node.rumored.distribution = uni_0_1
+19.01.2016 19:29:20 [0] INFO root node.rumored.probability = .01
+19.01.2016 19:29:20 [0] INFO root process.count = 4
+19.01.2016 19:29:20 [0] INFO root random.seed = 1
+19.01.2016 19:29:20 [0] INFO root shared.nodes.n = 20
+19.01.2016 19:29:20 [0] INFO root stop.at = 200
+19.01.2016 19:29:20 [0] INFO root run, time: 0.189999999999999999998
+19.01.2016 19:29:20 [0] INFO root total execution, time: 0.25

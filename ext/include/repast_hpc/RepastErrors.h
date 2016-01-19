@@ -72,6 +72,13 @@ std::string make_str(const T t){
     return ss.str();
 }
 
+template <typename M>
+std::string to_string(M t){
+    std::stringstream ss;
+    ss << t;
+    return ss.str();
+}
+
 
 // Some syntactic sugar to make the error definitions clean
 #define INVALID_ARG(_VAL) std::invalid_argument(err_msg(_VAL
@@ -732,7 +739,7 @@ class Repast_Error_47: public std::out_of_range{
 public:
   Repast_Error_47(int matrixDimensions, int pointDimensions, T index): OUT_OF_RANGE(ERROR_NUMBER 47)
       THROWN_BY     "Matrix<T>::boundsCheck(const Point<int>& index)"
-      REASON        "Number of dimensions in index point (" + make_str(index) + " = " + VAL(pointDimensions) + ") does not equal matrix dimensions (" + std::to_string(matrixDimensions) + ")"
+      REASON        "Number of dimensions in index point (" + make_str(index) + " = " + VAL(pointDimensions) + ") does not equal matrix dimensions (" + to_string(matrixDimensions) + ")"
       EXPLANATION   "The dimensions of the index point must match those of the matrix to check boundaries"
       CAUSE         "Unknown"
       RESOLUTION    "Unknown"

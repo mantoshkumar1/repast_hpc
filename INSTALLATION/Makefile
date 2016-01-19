@@ -1,15 +1,15 @@
 # Repast HPC Manual Build Makefile
 
 # VARIABLES (Supply values for these; for definitions and examples, see INSTALL)
-CXX=mpicxx
-CXXLD=mpicxx
-BOOST_INCLUDE_DIR=/usr/local/include
-BOOST_LIB_DIR=/usr/local/lib
+CXX=/lrz/sys/intel/impi/5.0.3.048/lrzbin/mpiCC
+CXXLD=/lrz/sys/intel/impi/5.0.3.048/lrzbin/mpiCC
+BOOST_INCLUDE_DIR=$PWD/../ext/Boost/Boost_1.58/include
+BOOST_LIB_DIR=$PWD/../ext/Boost/Boost_1.58/lib
 BOOST_INFIX=-mt
-NETCDF_INCLUDE_DIR=/usr/local/include
-NETCDF_LIB_DIR=/usr/local/lib
-CURL_INCLUDE_DIR=./
-CURL_LIB_DIR=./
+NETCDF_INCLUDE_DIR=$PWD/../ext/NetCDF/include/
+NETCDF_LIB_DIR=$PWD/../ext/NetCDF/lib
+CURL_INCLUDE_DIR=$PWD/../ext/CURL/include/
+CURL_LIB_DIR=$PWD/../ext/CURL/lib/
 
 # DIRECTORIES 
 SRC_DIR=../src
@@ -83,7 +83,7 @@ RELOGO_l_FLAGS = $(LIB_l_FLAGS) $(l_REPAST_HPC)
 OUTPUT_FLAG = -o
 
 # change to true for static libraries
-STATIC = false
+STATIC = true
 ifeq ($(STATIC), true)
 	DYN_FLAG =
 	LIB_EXT = a
@@ -192,7 +192,7 @@ distclean: clean
 
 # Object files are built from cpp files
 %.o:
-	$(CXX) -fPIC -std=c++11 -c $(I_BOOST) $(I_NETCDF) $(I_CURL) -I$(SRC_DIR) -g0 -O3 -o $@ $*.cpp
+	$(CXX) -fPIC -c $(I_BOOST) $(I_NETCDF) $(I_CURL) -I$(SRC_DIR) -g0 -O3 -o $@ $*.cpp
 	
 # Cancel implicit rule for name with no suffix, to avoid confusing output:
 %: %.o

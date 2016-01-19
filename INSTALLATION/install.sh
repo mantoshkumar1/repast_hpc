@@ -7,7 +7,8 @@ cd ..
 BASE_DIR=$PWD/ext
 cd INSTALLATION
 
-MPI_COMPILER_INVOCATION=$BASE_DIR/MPICH/bin/mpicxx
+#MPI_COMPILER_INVOCATION=$BASE_DIR/MPICH/bin/mpicxx
+MPI_COMPILER_INVOCATION=/lrz/sys/intel/impi/5.0.3.048/lrzbin/mpiCC
 
 
 # cURL
@@ -32,6 +33,7 @@ then
   mkdir -p ../ext/lib ../ext/include
   ln -s $BASE_DIR/CURL/include/curl $BASE_DIR/include/
   ln -s $BASE_DIR/CURL/lib/libcurl.* $BASE_DIR/lib/
+  rm -rf curl-7.42.1
 fi
 
 
@@ -55,6 +57,7 @@ then
   make install
   cd ..
   export PATH=$BASE_DIR/MPICH/bin/:$PATH
+  rm -rf mpich-3.1.4
 fi
 
 # NETCDF
@@ -98,6 +101,8 @@ then
 	ln -s $BASE_DIR/NetCDF/include/*.h $BASE_DIR/include/
   	ln -s $BASE_DIR/NetCDF/lib/libnetcdf* $BASE_DIR/lib/
   fi
+  rm -rf netcdf-4.2.1.1
+  rm -rf netcdf-cxx-4.2
 
 fi
 
@@ -126,6 +131,7 @@ if [ -e $BASE_DIR/Boost ]
   cd ..
   ln -s $BASE_DIR/Boost/Boost_1.58/include/boost $BASE_DIR/include/
   ln -s $BASE_DIR/Boost/Boost_1.58/lib/libboost* $BASE_DIR/lib/
+  rm -rf boost_1_58_0
 fi
 
 # Repast HPC

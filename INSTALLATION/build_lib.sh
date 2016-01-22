@@ -5,5 +5,5 @@ source /etc/profile.d/modules.sh
 ####export PATH=$PWD/../ext/MPICH/bin/:$PATH
 #./install.sh netcdf-netcpp
 #./install.sh boost
-module load scalasca
+module load scalasca/2.2
 ./install.sh rhpc

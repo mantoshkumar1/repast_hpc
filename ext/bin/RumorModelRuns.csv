@@ -1,2 +1,0 @@
-run.number,date_time.run,process.count,random.seed,node.count,ke.model.m,shared.nodes.n,initial.nodes,avg.non_local.node.count,stop.at,init.time,run.time
-,19.01.2016 19:29:20,4,1,10000,10,20,10,,200,0.0399999999999999999992,0.189999999999999999998

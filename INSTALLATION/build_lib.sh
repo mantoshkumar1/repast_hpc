@@ -1,4 +1,5 @@
 source /etc/profile.d/modules.sh
+#make clean
 #rm -rf ./../ext/*
 #./install.sh curl
 ####./install.sh mpich

@@ -137,13 +137,13 @@ $(RUMOR_EXE): $(REPAST_HPC_LIB) $(RUMOR_OBJECTS)
 	mkdir -p ../ext/bin
 	cp $(RUMOR_DIR)/config.props ../ext/bin/rumor_config.props
 	cp $(RUMOR_DIR)/model.props ../ext/bin/rumor_model.props
-	skin $(CXXLD) -L../ext/lib/ $(L_BOOST) $(L_NETCDF)  $(RUMOR_OBJECTS) -o $(RUMOR_EXE) $(l_REPAST_HPC) $(l_NETCDF) $(l_BOOST)
+	scalasca -instrument $(CXXLD) -L../ext/lib/ $(L_BOOST) $(L_NETCDF)  $(RUMOR_OBJECTS) -o $(RUMOR_EXE) $(l_REPAST_HPC) $(l_NETCDF) $(l_BOOST)
 
 $(ZOMBIE_EXE): $(REPAST_HPC_LIB) $(RELOGO_LIB) $(ZOMBIE_OBJECTS)
 	mkdir -p ../ext/bin
 	cp $(ZOMBIE_DIR)/config.props ../ext/bin/zombie_config.props
 	cp $(ZOMBIE_DIR)/model.props ../ext/bin/zombie_model.props
-	skin $(CXXLD) -L../ext/lib/ $(L_BOOST) $(L_NETCDF) $(L_CURL) $(ZOMBIE_OBJECTS) -o $(ZOMBIE_EXE) $(l_CURL) $(l_RELOGO) $(l_REPAST_HPC) $(l_NETCDF) $(l_BOOST) 
+	scalasca -instrument $(CXXLD) -L../ext/lib/ $(L_BOOST) $(L_NETCDF) $(L_CURL) $(ZOMBIE_OBJECTS) -o $(ZOMBIE_EXE) $(l_CURL) $(l_RELOGO) $(l_REPAST_HPC) $(l_NETCDF) $(l_BOOST) 
 
 # User-friendly names
 .PHONY : repast_hpc
@@ -192,7 +192,7 @@ distclean: clean
 
 # Object files are built from cpp files
 %.o:
-	skin $(CXX) -fPIC -c $(I_BOOST) $(I_NETCDF) $(I_CURL) -I$(SRC_DIR) -g0 -O3 -o $@ $*.cpp
+	scalasca -instrument $(CXX) -fPIC -c $(I_BOOST) $(I_NETCDF) $(I_CURL) -I$(SRC_DIR) -g0 -O3 -o $@ $*.cpp
 	
 # Cancel implicit rule for name with no suffix, to avoid confusing output:
 %: %.o

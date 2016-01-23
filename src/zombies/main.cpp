@@ -41,6 +41,7 @@
 #include "relogo/SimulationRunner.h"
 #include "relogo/Patch.h"
 //#include "repast_hpc/initialize_random.h"
+#include <scorep/SCOREP_User.h>
 
 #include "ZombieObserver.h"
 

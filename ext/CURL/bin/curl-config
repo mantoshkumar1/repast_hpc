@@ -21,7 +21,7 @@
 #
 ###########################################################################
 
-prefix=/home/hpc/t1221/t1221an/x/hpcLabProjectRepastHPC/ext/CURL
+prefix=/home/hpc/t1221/t1221an/x/upload/hpcLabProjectRepastHPC/ext/CURL
 exec_prefix=${prefix}
 includedir=${prefix}/include
 cppflag_curl_staticlib=
@@ -164,7 +164,7 @@ while test $# -gt 0; do
         ;;
 
     --configure)
-        echo " '--prefix=/home/hpc/t1221/t1221an/x/hpcLabProjectRepastHPC/ext/CURL'"
+        echo " '--prefix=/home/hpc/t1221/t1221an/x/upload/hpcLabProjectRepastHPC/ext/CURL'"
         ;;
 
     *)

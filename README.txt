@@ -2,8 +2,7 @@
 *******  How to use the system *******
 1. How to fetch the code
 2. How to build the system
-3. How to setup system according to your local system
-4. How to execute the program
+3. How to execute the program
 *************************************
 **************************************************************************************
 
@@ -17,12 +16,10 @@ $ git clone https://gitlab.lrz.de/ga78boj/hpcLabProjectRepastHPC.git
 
 
 **************************************************************************************
-2. How to build the system (Please read suggestion carefully)
+2. How to build the system
 **************************************************************************************
+(Patience: It would take around 15-20 minutes)
 
-(Suggestion: System is already built in fetch code and this step could be skipped.
-             But if you insist on making a fresh system build, please follow the following steps.
-             Warning: It would take around 15-20 minutes)
 $ cd hpcLabProjectRepastHPC/INSTALLATION
 $ sh build_lib.sh
 $ make -f Makefile all
@@ -30,18 +27,9 @@ $ cd ../ext/bin/
 $ cp ../../scripts/execute_app.sh ./
 
 
-**************************************************************************************
-3. How to setup system according to your local system
-**************************************************************************************
-Here I assume you are already in 'hpcLabProjectRepastHPC' directory.
-
-$ module load scalasca/2.2
-$ cd INSTALLATION
-$ make -f Makefile all
-
 
 **************************************************************************************
-4. How to execute the program
+3. How to execute the program
 **************************************************************************************
 Here I assume you are already in 'hpcLabProjectRepastHPC/ext/bin' directory.
 

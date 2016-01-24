@@ -1,0 +1,22 @@
+#random.seed = 1284067381
+stop.at = 20
+
+# per process
+human.count =   5000;
+zombie.count =  1000;
+
+# world definition props
+min.x = 0
+min.y = 0
+max.x = 99
+max.y = 99 
+grid.buffer = 2
+
+# these must multiply to total number of processes
+proc.per.x = 2 # num of processes in x dim
+proc.per.y = 2 # num of processes in y dim
+
+# named random number distributions
+distribution.zombie_move = int_uniform, 0, 2
+
+

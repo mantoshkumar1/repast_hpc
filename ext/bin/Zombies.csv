@@ -7,3 +7,4 @@ run.number,date_time.run,process.count,random.seed,human.count,zombie.count,min.
 ,23.01.2016 23:23:57,4,1453587838,5000;,1000;,0,0,99,99,2 # num of processes in x dim,2 # num of processes in y dim,2,3.39,40,402.74
 ,24.01.2016 00:01:47,16,1453590108,5000;,1000;,0,0,99,99,4 # num of processes in x dim,4 # num of processes in y dim,2,3.73,40,574.99
 ,24.01.2016 00:58:22,25,1453593502,5000;,1000;,0,0,99,99,5 # num of processes in x dim,5 # num of processes in y dim,2,3.76,40,681.95
+,24.01.2016 02:25:36,4,1453598737,5000;,1000;,0,0,99,99,2 # num of processes in x dim,2 # num of processes in y dim,2,3.43,20,205.28

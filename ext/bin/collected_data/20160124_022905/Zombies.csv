@@ -1,0 +1,10 @@
+run.number,date_time.run,process.count,random.seed,human.count,zombie.count,min.x,min.y,max.x,max.y,proc.per.x,proc.per.y,grid.buffer,init.time,stop.at,run.time
+,23.01.2016 17:40:00,4,1453567207,500;,5;,-100,-100,99,99,2,2,2,0.57,10,33.76
+,23.01.2016 21:54:48,4,1453582494,500;,5;,-100,-100,99,99,2,2,2,0.55,10,33.69
+,23.01.2016 21:58:59,4,1453582745,500;,5;,-100,-100,99,99,2,2,2,0.56,10,33.94
+,23.01.2016 22:19:11,4,1453583957,500;,5;,-100,-100,99,99,2,2,2,0.55,10,33.87
+,23.01.2016 23:05:59,4,1453586761,5000;,1000;,0,0,99,99,2 # num of processes in x dim,2 # num of processes in y dim,2,3.41,10,105.78
+,23.01.2016 23:23:57,4,1453587838,5000;,1000;,0,0,99,99,2 # num of processes in x dim,2 # num of processes in y dim,2,3.39,40,402.74
+,24.01.2016 00:01:47,16,1453590108,5000;,1000;,0,0,99,99,4 # num of processes in x dim,4 # num of processes in y dim,2,3.73,40,574.99
+,24.01.2016 00:58:22,25,1453593502,5000;,1000;,0,0,99,99,5 # num of processes in x dim,5 # num of processes in y dim,2,3.76,40,681.95
+,24.01.2016 02:25:36,4,1453598737,5000;,1000;,0,0,99,99,2 # num of processes in x dim,2 # num of processes in y dim,2,3.43,20,205.28

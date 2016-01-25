@@ -36,6 +36,7 @@
  *
  *  Created on: Sep 1, 2010
  *      Author: nick
+ *
  */
 #include <sstream>
 
@@ -54,6 +55,7 @@
 #include "Human.h"
 #include "Zombie.h"
 #include "InfectionSum.h"
+#include "PatchUtil.h"
 
 using namespace std;
 using namespace repast;
@@ -61,6 +63,100 @@ using namespace relogo;
 
 const string HUMAN_COUNT_PROP = "human.count";
 const string ZOMBIE_COUNT_PROP = "zombie.count";
+
+
+template<typename AgentType, typename T>
+    void ZombieObserver::placeAgents(std::vector<Patch*> &patchSet, T *io_data)
+{
+    GridDimensions dim = grid()->dimensions();    
+    int horizontal_run = dim.extents(0);
+    int lxmin = minPxcor();
+    int lymin = minPycor();
+
+    std::vector<repast::relogo::Patch*>::iterator iter = patchSet.begin();
+    while ( iter != patchSet.end() ) {
+	int i = (*iter)->pxCor() - lxmin;
+	int j = (*iter)->pyCor() - lymin;
+
+	int count = io_data[i + j*horizontal_run];
+	AgentSet<AgentType> agentSet;
+	int n = instantiate<AgentType>(count, agentSet);
+	agentSet.apply(MoveToPatch(*iter));
+
+	iter++;
+    }
+}
+
+void ZombieObserver::gatherPatches(std::vector<Patch*>& patchSet)
+{
+    int px, py;
+    int lxmin = minPxcor();
+    int lxmax = maxPxcor();
+    int lymin = minPycor();
+    int lymax = maxPycor();
+
+    for (px=lxmin; px <= lxmax; px++) 
+      {
+	  for (py=lymin; py <= lymax; py++)
+	      {
+		  repast::relogo::Patch *patch = patchAt<repast::relogo::Patch>(px,py);
+		  patchSet.push_back(patch);
+	      }
+      }
+}
+
+/**
+ *
+ * write out the human (or zombie) counts in each grid cell.
+ *
+ */
+template<typename AgentType, typename T>
+    void ZombieObserver::gatherPopulation(std::vector<Patch*>& patchSet, T *io_data)
+{
+    GridDimensions dim = grid()->dimensions();    
+    int horizontal_run = dim.extents(0);
+
+    std::vector<Patch*>::iterator iter = patchSet.begin();
+    int lxmin = minPxcor();
+    int lymin = minPycor();
+
+    while ( iter != patchSet.end() ) {
+        int i = (*iter)->pxCor() - lxmin;
+        int j = (*iter)->pyCor() - lymin;
+
+        AgentSet<AgentType> set;
+	
+        (*iter)->turtlesOn(set);
+        io_data[i + j * horizontal_run] = int(set.size());
+        iter++;
+    }
+}
+
+template<typename AgentType>
+    int ZombieObserver::instantiate(size_t count, repast::relogo::AgentSet<AgentType>& out) 
+{
+    int agentTypeId = create<AgentType>(count);
+    const std::type_info* info = &(typeid(AgentType));
+    int next_id = 0;
+
+    std::map<const std::type_info*, int, TypeInfoCmp>::iterator iter = idMap.find(info);
+    if (iter != idMap.end()) {
+	next_id = iter->second;
+    }
+
+    for (int i=0; i<count; i++) {
+	//	repast::AgentId agentid(next_id + i, _rank, getTypeId<AgentType>());
+	repast::AgentId agentid(next_id + i, _rank, agentTypeId);
+	AgentType* agent = who<AgentType>(agentid);
+	out.add(agent);
+    }
+
+    idMap[info] = (next_id + count);
+
+    //    return getTypeId<AgentType>();
+    return agentTypeId;
+}
+
 
 void ZombieObserver::go() {
   if (_rank == 0) {
@@ -84,50 +180,127 @@ void ZombieObserver::go() {
   }
 }
 
+
+template<typename AgentType>
+    void ZombieObserver::readAgents(Properties& props, std::string filename, std::string groupname, std::string dataname)
+{
+    int data_dim[2];
+    int *data;
+    MPI_Comm communicator = MPI_COMM_WORLD;
+
+    std::vector<Patch*> patchSet;
+    gatherPatches(patchSet);
+    
+    HdfDataInput<int> *data_in
+	= new HdfDataInput<int>(_rank, 
+				repast::strToInt(props.getProperty("proc.per.x")), 
+				repast::strToInt(props.getProperty("proc.per.y")), 
+				H5T_STD_I32LE, communicator);
+
+    data_in->open(props.getProperty(filename), "/", props.getProperty(dataname), data_dim);
+    data = new int[data_dim[0] * data_dim[1]];
+    data_in->read(data);
+    placeAgents<AgentType>(patchSet, data);
+    data_in->close();
+    delete data_in;
+    delete data;
+}
+
+
+void ZombieObserver::snapshot()
+{
+    GridDimensions dim = grid()->dimensions();    
+    int size = dim.extents(0) * dim.extents(1);
+
+    std::vector<Patch*> patchSet;
+    gatherPatches(patchSet);
+    int *data = new int[size];
+
+    gatherPopulation<Human>(patchSet, data);
+    human_out->write(data);
+    
+    gatherPopulation<Zombie>(patchSet, data);
+    zombie_out->write(data);
+
+    delete data;
+}
+
+
+void ZombieObserver::setupOutputs(Properties& props, std::string humanfile, std::string human_dataname, std::string zombiefile, std::string zombie_dataname)
+{
+    GridDimensions dim = grid()->dimensions();
+    int horizontal_run = dim.extents(0);
+    int vertical_run   = dim.extents(1);
+    int total = strToInt(props.getProperty("stop.at")) / strToInt(props.getProperty("output.interval"));    
+    MPI_Comm communicator = MPI_COMM_WORLD;
+
+    human_out = new HdfDataOutput<int>(props.getProperty(humanfile), props.getProperty(human_dataname) ,_rank, H5T_STD_I32LE, communicator);
+    human_out->configure(total, vertical_run, horizontal_run, 
+			 repast::strToInt(props.getProperty("proc.per.x")), 
+			 repast::strToInt(props.getProperty("proc.per.y")), 
+			 _rank);
+    
+    zombie_out = new HdfDataOutput<int>(props.getProperty(zombiefile), props.getProperty(zombie_dataname) ,_rank, H5T_STD_I32LE, communicator);
+    zombie_out->configure(total, vertical_run, horizontal_run, 
+			  repast::strToInt(props.getProperty("proc.per.x")), 
+			  repast::strToInt(props.getProperty("proc.per.y")), 
+			  _rank);
+}
+
+void ZombieObserver::closeOutputs()
+{
+    human_out->close();
+    zombie_out->close();
+    
+    delete human_out;
+    delete zombie_out;
+}
+
 void ZombieObserver::setup(Properties& props) {
-  //	Observer::setup(props); // No longer need to call this (SimRunner calls _setup, which calls this after all initialization is done)
-  repast::Timer initTimer;
-  initTimer.start();
+    repast::Timer initTimer;
+    initTimer.start();
 
-  int humanCount = strToInt(props.getProperty(HUMAN_COUNT_PROP));
-  humanType = create<Human> (humanCount);
+    humanType = create<Human> (0);
+    zombieType = create<Zombie> (0);
 
-  int zombieCount = strToInt(props.getProperty(ZOMBIE_COUNT_PROP));
-  zombieType = create<Zombie> (zombieCount);
+    readAgents<Human>(props,"human.input.file","/","human.dataname");
+    readAgents<Zombie>(props,"zombie.input.file","/","zombie.dataname");
 
-  AgentSet<Human> humans;
-  get(humans);
-  humans.apply(RandomMove(this));
+    setupOutputs(props, "human.output.file", "human.dataname", "zombie.output.file", "zombie.dataname");
 
-  AgentSet<Zombie> zombies;
-  get(zombies);
-  zombies.apply(RandomMove(this));
-
-	SVDataSetBuilder svbuilder("./output/data.csv", ",", repast::RepastProcess::instance()->getScheduleRunner().schedule());
-	InfectionSum* iSum = new InfectionSum(this);
-	svbuilder.addDataSource(repast::createSVDataSource("number_infected", iSum, std::plus<int>()));
-	addDataSet(svbuilder.createDataSet());
+    ScheduleRunner& runner = RepastProcess::instance()->getScheduleRunner();
+    runner.scheduleEvent(1, strToInt(props.getProperty("output.interval")), repast::Schedule::FunctorPtr(new repast::MethodFunctor<ZombieObserver> (this, &ZombieObserver::snapshot)));
+    runner.scheduleEndEvent(repast::Schedule::FunctorPtr(new repast::MethodFunctor<ZombieObserver> (this, &ZombieObserver::closeOutputs)));
 
 
+    SVDataSetBuilder svbuilder("./output/data.csv", ",", repast::RepastProcess::instance()->getScheduleRunner().schedule());
+    InfectionSum* iSum = new InfectionSum(this);
+    svbuilder.addDataSource(repast::createSVDataSource("number_infected", iSum, std::plus<int>()));
+    addDataSet(svbuilder.createDataSet());
+    
+    
 #ifndef _WIN32
-	// no netcdf under windows
-	NCDataSetBuilder builder("./output/data.ncf", RepastProcess::instance()->getScheduleRunner().schedule());
-	InfectionSum* infectionSum = new InfectionSum(this);
-	builder.addDataSource(repast::createNCDataSource("number_infected", infectionSum, std::plus<int>()));
-	addDataSet(builder.createDataSet());
+    // no netcdf under windows
+    NCDataSetBuilder builder("./output/data.ncf", RepastProcess::instance()->getScheduleRunner().schedule());
+    InfectionSum* infectionSum = new InfectionSum(this);
+    builder.addDataSource(repast::createNCDataSource("number_infected", infectionSum, std::plus<int>()));
+    addDataSet(builder.createDataSet());
 #endif
-
-	long double t = initTimer.stop();
-	std::stringstream ss;
-	ss << t;
-	props.putProperty("init.time", ss.str());
+    
+    long double t = initTimer.stop();
+    std::stringstream ss;
+    ss << t;
+    props.putProperty("init.time", ss.str());
 }
 
 RelogoAgent* ZombieObserver::createAgent(const AgentPackage& content) {
 	if (content.type == zombieType) {
 		return new Zombie(content.getId(), this);
-	} else {
+	} else if  ( content.type == humanType ) {
 		return new Human(content.getId(), this, content);
+	}
+	else {  // bug fix: This was missing in the original code.
+	        return new Patch(content.getId(), this);
 	}
 }
 
@@ -165,7 +338,7 @@ void ZombieObserver::createAgents(std::vector<AgentPackage>& contents, std::vect
 			out.push_back(new Human(content.getId(), this, content));
 		} else {
 			// its a patch.
-			out.push_back(new Patch(content.getId(), this));
+			out.push_back(new repast::relogo::Patch(content.getId(), this));
 		}
 	}
 }

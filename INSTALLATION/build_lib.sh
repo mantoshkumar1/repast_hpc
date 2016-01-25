@@ -2,6 +2,8 @@ source /etc/profile.d/modules.sh
 make clean
 rm -rf ./../ext/*
 ./install.sh curl
+./install.sh szip
+./install.sh hdf5
 ###./install.sh mpich
 ####export PATH=$PWD/../ext/MPICH/bin/:$PATH
 ./install.sh netcdf-netcpp

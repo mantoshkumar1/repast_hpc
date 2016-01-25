@@ -1,4 +1,4 @@
-prefix=/home/hpc/t1221/t1221an/x/upload/hpcLabProjectRepastHPC/ext/NetCDF
+prefix=/home/hpc/t1221/t1221an/hallabol/hpcLabProjectRepastHPC/ext/NetCDF
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

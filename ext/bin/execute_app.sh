@@ -4,6 +4,8 @@ cp ../../src/zombies/config.props zombie_config.props
 cp ../../src/zombies/model.props zombie_model.props
 rm -rf scorep_zombie_model*
 rm -rf corep_zombie_model*
+rm -rf human_out.h5
+rm -rf zombie_out.h5
 rm -rf logs/*
 rm -rf output/*
 module add scalasca/2.2
@@ -37,6 +39,11 @@ cp -R output ./"$cus_dir_name"/
 cp  zombie_config.props ./"$cus_dir_name"/
 cp  zombie_model.props ./"$cus_dir_name"/
 cp  Zombies.csv ./"$cus_dir_name"/
+
+cp  human_out.h5 ./"$cus_dir_name"/
+cp  zombie.h5 ./"$cus_dir_name"/
+cp  zombie_out.h5 ./"$cus_dir_name"/
+cp  human.h5 ./"$cus_dir_name"/
 #scalasca -analyze mpiexec -n 4 ./zombie_model zombie_config.props zombie_model.props
 #square scorep_zombie_model_4_sum
 

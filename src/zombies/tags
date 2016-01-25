@@ -8,14 +8,22 @@ AGENTPACKAGE_H	AgentPackage.h	43;"	d
 AgentPackage	AgentPackage.h	/^struct AgentPackage {$/;"	s
 CountHumansOnPatch	Zombie.cpp	/^struct CountHumansOnPatch {$/;"	s	file:
 CountZombiesOnPatch	Human.cpp	/^struct CountZombiesOnPatch {$/;"	s	file:
+HDF_DATA_INPUT_H	hdf_datainput.h	8;"	d
+HDF_DATA_OUTPUT_H	hdf_dataoutput.h	10;"	d
 HUMAN_COUNT_PROP	ZombieObserver.cpp	/^const string HUMAN_COUNT_PROP = "human.count";$/;"	v
 HUMAN_H_	Human.h	42;"	d
+HdfDataInput	hdf_datainput.h	/^HdfDataInput<T>::HdfDataInput(int myrank, int procs_x, int procs_y, hid_t type, MPI_Comm comm) $/;"	f	class:HdfDataInput
+HdfDataInput	hdf_datainput.h	/^class HdfDataInput {$/;"	c
+HdfDataOutput	hdf_dataoutput.h	/^HdfDataOutput<T>::HdfDataOutput(std::string fname, std::string dname, int myrank, hid_t type, MPI_Comm comm) $/;"	f	class:HdfDataOutput
+HdfDataOutput	hdf_dataoutput.h	/^class HdfDataOutput {$/;"	c
 Human	Human.h	/^	Human(repast::AgentId id, repast::relogo::Observer* obs): repast::relogo::Turtle(id, obs), _infected(false), _infectionTime(0) {}$/;"	f	class:Human
 Human	Human.h	/^	Human(repast::AgentId id, repast::relogo::Observer* obs, const AgentPackage& package): repast::relogo::Turtle(id, obs), _infected(package.infected),$/;"	f	class:Human
 Human	Human.h	/^class Human : public repast::relogo::Turtle {$/;"	c
 INFECTIONSUM_H_	InfectionSum.h	42;"	d
 InfectionSum	InfectionSum.cpp	/^InfectionSum::InfectionSum(ZombieObserver* zobs) : obs(zobs){}$/;"	f	class:InfectionSum
 InfectionSum	InfectionSum.h	/^class InfectionSum: public repast::TDataSource<int> {$/;"	c
+MoveToPatch	PatchUtil.h	/^	MoveToPatch(repast::relogo::Patch* p) : patch(p){}$/;"	f	class:MoveToPatch
+MoveToPatch	PatchUtil.h	/^class MoveToPatch {$/;"	c
 SOURCES	module.mk	/^SOURCES = main.cpp \\$/;"	m
 ZOMBIEOBSERVER_H_	ZombieObserver.h	42;"	d
 ZOMBIE_COUNT_PROP	ZombieObserver.cpp	/^const string ZOMBIE_COUNT_PROP = "zombie.count";$/;"	v
@@ -27,14 +35,46 @@ ZombieObserver	ZombieObserver.h	/^class ZombieObserver : public repast::relogo::
 _infected	Human.h	/^	bool _infected;$/;"	m	class:Human
 _infectionCount	ZombieObserver.h	/^	int _infectionCount;$/;"	m	class:ZombieObserver
 _infectionTime	Human.h	/^	int _infectionTime;$/;"	m	class:Human
+block	hdf_datainput.h	/^    hsize_t     block[3];$/;"	m	class:HdfDataInput
+block	hdf_dataoutput.h	/^    hsize_t block[2];$/;"	m	class:HdfDataOutput
+cindex	hdf_datainput.h	/^    int         rindex, cindex, tindex;$/;"	m	class:HdfDataInput
+close	hdf_datainput.h	/^int HdfDataInput<T>::close()$/;"	f	class:HdfDataInput
+close	hdf_dataoutput.h	/^void HdfDataOutput<T>::close()$/;"	f	class:HdfDataOutput
+closeOutputs	ZombieObserver.cpp	/^void ZombieObserver::closeOutputs()$/;"	f	class:ZombieObserver
+closed	hdf_dataoutput.h	/^    bool closed;$/;"	m	class:HdfDataOutput
+communicator	hdf_datainput.h	/^    MPI_Comm communicator;$/;"	m	class:HdfDataInput
+communicator	hdf_dataoutput.h	/^    MPI_Comm communicator;$/;"	m	class:HdfDataOutput
+configure	hdf_dataoutput.h	/^void HdfDataOutput<T>::configure(int total, int block_size_y, int block_size_x, int num_procs_y, int num_procs_x, int rank)$/;"	f	class:HdfDataOutput
+count	hdf_datainput.h	/^    hsize_t	count[3];$/;"	m	class:HdfDataInput
+count	hdf_dataoutput.h	/^    hsize_t count[2];$/;"	m	class:HdfDataOutput
 createAgent	ZombieObserver.cpp	/^RelogoAgent* ZombieObserver::createAgent(const AgentPackage& content) {$/;"	f	class:ZombieObserver
 createAgents	ZombieObserver.cpp	/^void ZombieObserver::createAgents(std::vector<AgentPackage>& contents, std::vector<RelogoAgent*>& out) {$/;"	f	class:ZombieObserver
 currentProc	AgentPackage.h	/^	int id, proc, type, currentProc;$/;"	m	struct:AgentPackage
+dataname	hdf_dataoutput.h	/^    std::string dataname;$/;"	m	class:HdfDataOutput
+dataspace	hdf_datainput.h	/^    hid_t       dataspace, memspace;      \/* file and memory dataspace identifiers *\/$/;"	m	class:HdfDataInput
+dimsf	hdf_datainput.h	/^    hsize_t     dimsf[3];                 \/* dataset dimensions *\/$/;"	m	class:HdfDataInput
+dimsf	hdf_dataoutput.h	/^    hsize_t dimsf[2];$/;"	m	class:HdfDataOutput
+dimsm	hdf_datainput.h	/^    hsize_t     dimsm[3];                 \/* dataset dimensions *\/$/;"	m	class:HdfDataInput
+dimsm	hdf_dataoutput.h	/^    hsize_t dimsm[2];$/;"	m	class:HdfDataOutput
+dset_id	hdf_datainput.h	/^    hid_t       file_id, dset_id;$/;"	m	class:HdfDataInput
+dset_id	hdf_dataoutput.h	/^    hid_t file_id, dset_id;$/;"	m	class:HdfDataOutput
+file_id	hdf_datainput.h	/^    hid_t       file_id, dset_id;$/;"	m	class:HdfDataInput
+file_id	hdf_dataoutput.h	/^    hid_t file_id, dset_id;$/;"	m	class:HdfDataOutput
+filename	hdf_dataoutput.h	/^    std::string filename;$/;"	m	class:HdfDataOutput
+filespace	hdf_datainput.h	/^    hid_t filespace;$/;"	m	class:HdfDataInput
+filespace	hdf_dataoutput.h	/^    hid_t filespace, memspace;$/;"	m	class:HdfDataOutput
+gatherPatches	ZombieObserver.cpp	/^void ZombieObserver::gatherPatches(std::vector<Patch*>& patchSet)$/;"	f	class:ZombieObserver
+gatherPopulation	ZombieObserver.cpp	/^    void ZombieObserver::gatherPopulation(std::vector<Patch*>& patchSet, T *io_data)$/;"	f	class:ZombieObserver
 getData	InfectionSum.cpp	/^int InfectionSum::getData() {$/;"	f	class:InfectionSum
 getId	AgentPackage.h	/^	repast::AgentId getId() const {$/;"	f	struct:AgentPackage
 go	ZombieObserver.cpp	/^void ZombieObserver::go() {$/;"	f	class:ZombieObserver
+group_id	hdf_datainput.h	/^    hid_t       group_id;$/;"	m	class:HdfDataInput
+h5_datatype	hdf_datainput.h	/^    hid_t h5_datatype;$/;"	m	class:HdfDataInput
+h5_datatype	hdf_dataoutput.h	/^    hid_t h5_datatype;$/;"	m	class:HdfDataOutput
 humanType	ZombieObserver.h	/^	int zombieType, humanType;$/;"	m	class:ZombieObserver
+human_out	ZombieObserver.h	/^	HdfDataOutput<int> *human_out, *zombie_out;$/;"	m	class:ZombieObserver
 id	AgentPackage.h	/^	int id, proc, type, currentProc;$/;"	m	struct:AgentPackage
+idMap	ZombieObserver.h	/^	std::map<const std::type_info*, int, repast::relogo::TypeInfoCmp> idMap;$/;"	m	class:ZombieObserver
 incrementInfectionCount	ZombieObserver.h	/^	void incrementInfectionCount() {$/;"	f	class:ZombieObserver
 infect	Human.cpp	/^void Human::infect() {$/;"	f	class:Human
 infect	Zombie.cpp	/^  void Zombie::infect(Human* human) {$/;"	f	class:Zombie
@@ -43,27 +83,65 @@ infected	Human.h	/^	bool infected() const {$/;"	f	class:Human
 infectionCount	ZombieObserver.h	/^	int infectionCount() const {$/;"	f	class:ZombieObserver
 infectionTime	AgentPackage.h	/^	int infectionTime;$/;"	m	struct:AgentPackage
 infectionTime	Human.h	/^	int infectionTime() const {$/;"	f	class:Human
+instantiate	ZombieObserver.cpp	/^    int ZombieObserver::instantiate(size_t count, repast::relogo::AgentSet<AgentType>& out) $/;"	f	class:ZombieObserver
+iteration	hdf_datainput.h	/^    int         iteration;$/;"	m	class:HdfDataInput
+iteration	hdf_dataoutput.h	/^    int iteration;$/;"	m	class:HdfDataOutput
 local_dir	module.mk	/^local_dir := zombies$/;"	m
 local_src	module.mk	/^local_src := $(addprefix $(local_dir)\/, $(SOURCES))$/;"	m
 main	main.cpp	/^int main(int argc, char **argv) {$/;"	f
+memspace	hdf_datainput.h	/^    hid_t       dataspace, memspace;      \/* file and memory dataspace identifiers *\/$/;"	m	class:HdfDataInput
+memspace	hdf_dataoutput.h	/^    hid_t filespace, memspace;$/;"	m	class:HdfDataOutput
+mpi_rank	hdf_datainput.h	/^    int       mpi_rank;	$/;"	m	class:HdfDataInput
+mpi_rank	hdf_dataoutput.h	/^    int mpi_rank;$/;"	m	class:HdfDataOutput
+ndim	hdf_datainput.h	/^    hid_t       ndim;$/;"	m	class:HdfDataInput
+num_cols	hdf_datainput.h	/^    hsize_t     num_rows, num_cols;$/;"	m	class:HdfDataInput
+num_rows	hdf_datainput.h	/^    hsize_t     num_rows, num_cols;$/;"	m	class:HdfDataInput
 obs	InfectionSum.h	/^	ZombieObserver* obs;$/;"	m	class:InfectionSum
+offset	hdf_datainput.h	/^    hsize_t	offset[3];$/;"	m	class:HdfDataInput
+offset	hdf_dataoutput.h	/^    hsize_t offset[2];$/;"	m	class:HdfDataOutput
+open	hdf_datainput.h	/^int HdfDataInput<T>::open(std::string filename, std::string groupname, std::string dataname, int *dim)$/;"	f	class:HdfDataInput
 operator ()	Human.cpp	/^	double operator()(const Patch* patch) const {$/;"	f	struct:CountZombiesOnPatch
+operator ()	PatchUtil.h	/^void MoveToPatch::operator()(repast::relogo::Turtle* turtle) const {$/;"	f	class:MoveToPatch
 operator ()	Zombie.cpp	/^	double operator()(const Patch* patch) const {$/;"	f	struct:CountHumansOnPatch
+patch	PatchUtil.h	/^    repast::relogo::Patch* patch;$/;"	m	class:MoveToPatch
+patch_utils_h	PatchUtil.h	10;"	d
+placeAgents	ZombieObserver.cpp	/^    void ZombieObserver::placeAgents(std::vector<Patch*> &patchSet, T *io_data)$/;"	f	class:ZombieObserver
+plist_id	hdf_datainput.h	/^    hid_t	plist_id;                 \/* property list identifier *\/$/;"	m	class:HdfDataInput
+plist_id	hdf_dataoutput.h	/^    hid_t plist_id;$/;"	m	class:HdfDataOutput
 proc	AgentPackage.h	/^	int id, proc, type, currentProc;$/;"	m	struct:AgentPackage
 props	ZombieObserver.h	/^	repast::Properties props;$/;"	m	class:ZombieObserver
 provideContent	ZombieObserver.cpp	/^void ZombieObserver::provideContent(RelogoAgent* agent, std::vector<AgentPackage>& out) {$/;"	f	class:ZombieObserver
 provideContent	ZombieObserver.cpp	/^void ZombieObserver::provideContent(const repast::AgentRequest& request, std::vector<AgentPackage>& out) {$/;"	f	class:ZombieObserver
+read	hdf_datainput.h	/^int HdfDataInput<T>::read(T* data)$/;"	f	class:HdfDataInput
+readAgents	ZombieObserver.cpp	/^    void ZombieObserver::readAgents(Properties& props, std::string filename, std::string groupname, std::string dataname)$/;"	f	class:ZombieObserver
+rindex	hdf_datainput.h	/^    int         rindex, cindex, tindex;$/;"	m	class:HdfDataInput
 runZombies	main.cpp	/^void runZombies(std::string propsFile, int argc, char ** argv) {$/;"	f
 serialize	AgentPackage.h	/^	void serialize(Archive& ar, const unsigned int version) {$/;"	f	struct:AgentPackage
 set	Human.h	/^  void set(bool infected, int infectionTime){$/;"	f	class:Human
 setup	ZombieObserver.cpp	/^void ZombieObserver::setup(Properties& props) {$/;"	f	class:ZombieObserver
+setupOutputs	ZombieObserver.cpp	/^void ZombieObserver::setupOutputs(Properties& props, std::string humanfile, std::string human_dataname, std::string zombiefile, std::string zombie_dataname)$/;"	f	class:ZombieObserver
+snapshot	ZombieObserver.cpp	/^void ZombieObserver::snapshot()$/;"	f	class:ZombieObserver
+status	hdf_datainput.h	/^    herr_t	status;$/;"	m	class:HdfDataInput
 step	Human.cpp	/^void Human::step() {$/;"	f	class:Human
 step	Zombie.cpp	/^void Zombie::step() {$/;"	f	class:Zombie
+stride	hdf_datainput.h	/^    hsize_t     stride[3];$/;"	m	class:HdfDataInput
+stride	hdf_dataoutput.h	/^    hsize_t stride[2];$/;"	m	class:HdfDataOutput
+tindex	hdf_datainput.h	/^    int         rindex, cindex, tindex;$/;"	m	class:HdfDataInput
+total_iterations	hdf_dataoutput.h	/^    int total_iterations;$/;"	m	class:HdfDataOutput
 type	AgentPackage.h	/^	int id, proc, type, currentProc;$/;"	m	struct:AgentPackage
 updateAgent	ZombieObserver.cpp	/^void ZombieObserver::updateAgent(AgentPackage package){$/;"	f	class:ZombieObserver
 usage	main.cpp	/^void usage() {$/;"	f
+worldsize_y	hdf_dataoutput.h	/^    int worldsize_y;$/;"	m	class:HdfDataOutput
+write	hdf_dataoutput.h	/^void HdfDataOutput<T>::write(T *data)$/;"	f	class:HdfDataOutput
+xprocs	hdf_datainput.h	/^    int xprocs;$/;"	m	class:HdfDataInput
+xprocs	hdf_dataoutput.h	/^    int xprocs;$/;"	m	class:HdfDataOutput
+yprocs	hdf_datainput.h	/^    int yprocs;$/;"	m	class:HdfDataInput
 zombieType	ZombieObserver.h	/^	int zombieType, humanType;$/;"	m	class:ZombieObserver
+zombie_out	ZombieObserver.h	/^	HdfDataOutput<int> *human_out, *zombie_out;$/;"	m	class:ZombieObserver
+~HdfDataInput	hdf_datainput.h	/^HdfDataInput<T>::~HdfDataInput() $/;"	f	class:HdfDataInput
+~HdfDataOutput	hdf_dataoutput.h	/^HdfDataOutput<T>::~HdfDataOutput() $/;"	f	class:HdfDataOutput
 ~Human	Human.h	/^	virtual ~Human() {}$/;"	f	class:Human
 ~InfectionSum	InfectionSum.cpp	/^InfectionSum::~InfectionSum() {}$/;"	f	class:InfectionSum
+~MoveToPatch	PatchUtil.h	/^	virtual ~MoveToPatch() {}$/;"	f	class:MoveToPatch
 ~Zombie	Zombie.h	/^	virtual ~Zombie() {}$/;"	f	class:Zombie
 ~ZombieObserver	ZombieObserver.h	/^	virtual ~ZombieObserver() {}$/;"	f	class:ZombieObserver

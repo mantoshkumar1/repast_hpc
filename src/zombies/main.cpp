@@ -58,9 +58,7 @@ void usage() {
 
 void runZombies(std::string propsFile, int argc, char ** argv) {
   boost::mpi::communicator world;
-
-	  // create a Properties object from the propsfile
-	  Properties props(propsFile, argc, argv, &world);
+	Properties props(propsFile, argc, argv, &world);
 
   std::string time;
   repast::timestamp(time);
@@ -119,11 +117,8 @@ int main(int argc, char **argv) {
 	}
 
 	if (config.size() > 0 && props.size() > 0) {
-                // initialize repast hpc with the config file
 		RepastProcess::init(config, &world);
-
 		runZombies(props, argc, argv);
-
 	} else {
 		if (world.rank() == 0) usage();
 		return 0;

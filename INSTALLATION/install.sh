@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-# Note: Currently installs MPICH, NetCDF, NetCDF-CXX, and Boost version 1.58
+# Note: Currently installs MPICH, NetCDF, NetCDF-CXX, and Boost version 1.58, HDF 1.8.16
 
 cd ..
 BASE_DIR=$PWD/ext
@@ -10,6 +10,56 @@ cd INSTALLATION
 #MPI_COMPILER_INVOCATION=$BASE_DIR/MPICH/bin/mpicxx
 MPI_COMPILER_INVOCATION=/lrz/sys/intel/impi/5.0.3.048/lrzbin/mpiCC
 
+# szip
+if [[ $1 == *szip* ]]
+then
+  if [ -e $BASE_DIR/szip ]
+  then
+    echo "A directory named $BASE_DIR/szip already exists; you must delete it before it can be rebuilt."
+    exit
+  fi
+  if [ ! -e szip-2.1.tar.gz ]
+  then
+    echo "szip tar file (szip-2.1.tar.gz) not found; you must download this and put it in this directory to continue."
+    exit
+  fi 
+  tar -xvf szip-2.1.tar.gz
+  cd szip-2.1
+  ./configure --prefix=$BASE_DIR/szip
+  make
+  make install
+  cd ..
+  #mkdir -p ../ext/lib ../ext/include
+  #ln -s $BASE_DIR/HDF5/include/curl $BASE_DIR/include/
+  #ln -s $BASE_DIR/CURL/lib/libcurl.* $BASE_DIR/lib/
+  rm -rf szip-2.1
+fi
+
+
+# HDF5
+if [[ $1 == *hdf5* ]]
+then
+  if [ -e $BASE_DIR/hdf5 ]
+  then
+    echo "A directory named $BASE_DIR/hdf5 already exists; you must delete it before it can be rebuilt."
+    exit
+  fi
+  if [ ! -e hdf5-1.8.16.tar.gz ]
+  then
+    echo "HDF5 tar file (hdf5-1.8.16.tar.gz) not found; you must download this and put it in this directory to continue."
+    exit
+  fi 
+  tar -xvf hdf5-1.8.16.tar.gz
+  cd hdf5-1.8.16
+  CC=/lrz/sys/intel/impi/5.0.3.048/lrzbin/mpicc ./configure --prefix=$BASE_DIR/hdf5 --enable-parallel --with-szlib=$BASE_DIR/szip/lib
+  make
+  make install
+  cd ..
+  #mkdir -p ../ext/lib ../ext/include
+  #ln -s $BASE_DIR/HDF5/include/curl $BASE_DIR/include/
+  #ln -s $BASE_DIR/CURL/lib/libcurl.* $BASE_DIR/lib/
+  rm -rf hdf5-1.8.16
+fi
 
 # cURL
 if [[ $1 == *curl* ]]
@@ -137,6 +187,6 @@ fi
 # Repast HPC
 if [[ $1 == *rhpc* ]]
 then
-  make -f Makefile CXX=$MPI_COMPILER_INVOCATION CXXLD="$MPI_COMPILER_INVOCATION" BOOST_INCLUDE_DIR=$BASE_DIR/include BOOST_LIB_DIR=$BASE_DIR/lib BOOST_INFIX=-mt NETCDF_INCLUDE_DIR=$BASE_DIR/include NETCDF_LIB_DIR=$BASE_DIR/lib CURL_INCLUDE_DIR=$BASE_DIR/include CURL_LIB_DIR=$BASE_DIR/lib
+  make -f Makefile CXX=$MPI_COMPILER_INVOCATION CXXLD="$MPI_COMPILER_INVOCATION" BOOST_INCLUDE_DIR=$BASE_DIR/include BOOST_LIB_DIR=$BASE_DIR/lib BOOST_INFIX=-mt NETCDF_INCLUDE_DIR=$BASE_DIR/include NETCDF_LIB_DIR=$BASE_DIR/lib CURL_INCLUDE_DIR=$BASE_DIR/include CURL_LIB_DIR=$BASE_DIR/lib HDF5_INCLUDE_DIR=$BASE_DIR/hdf5/include Z_INCLUDE_DIR=$BASE_DIR/szip/include
 fi
 

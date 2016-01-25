@@ -3,13 +3,17 @@
 # VARIABLES (Supply values for these; for definitions and examples, see INSTALL)
 CXX=/lrz/sys/intel/impi/5.0.3.048/lrzbin/mpiCC
 CXXLD=/lrz/sys/intel/impi/5.0.3.048/lrzbin/mpiCC
-BOOST_INCLUDE_DIR=$PWD/../ext/Boost/Boost_1.58/include
-BOOST_LIB_DIR=$PWD/../ext/Boost/Boost_1.58/lib
+BOOST_INCLUDE_DIR=$(PWD)/../ext/Boost/Boost_1.58/include
+BOOST_LIB_DIR=$(PWD)/../ext/Boost/Boost_1.58/lib
 BOOST_INFIX=-mt
-NETCDF_INCLUDE_DIR=$PWD/../ext/NetCDF/include/
-NETCDF_LIB_DIR=$PWD/../ext/NetCDF/lib
-CURL_INCLUDE_DIR=$PWD/../ext/CURL/include/
-CURL_LIB_DIR=$PWD/../ext/CURL/lib/
+NETCDF_INCLUDE_DIR=$(PWD)/../ext/NetCDF/include/
+NETCDF_LIB_DIR=$(PWD)/../ext/NetCDF/lib
+CURL_INCLUDE_DIR=$(PWD)/../ext/CURL/include/
+CURL_LIB_DIR=$(PWD)/../ext/CURL/lib/
+HDF5_INCLUDE_DIR=$(PWD)/../ext/hdf5/include/
+HDF5_LIB_DIR=$(PWD)/../ext/hdf5/lib
+Z_LIB_DIR=$(PWD)/../ext/szip/lib/
+Z_INCLUDE_DIR=$(PWD)/../ext/szip/include/
 
 # DIRECTORIES 
 SRC_DIR=../src
@@ -29,7 +33,10 @@ l_NETCDF=-lnetcdf_c++ -lnetcdf
 I_CURL=-I$(CURL_INCLUDE_DIR)
 L_CURL=-L$(CURL_LIB_DIR)
 l_CURL=-lcurl
-
+I_HDF5=-I$(HDF5_INCLUDE_DIR)
+L_HDF5=-L$(HDF5_LIB_DIR) -L$(Z_LIB_DIR)
+l_HDF5=$(HDF5_LIB_DIR)/libhdf5_hl.a $(HDF5_LIB_DIR)/libhdf5.a -lz
+I_SZIP=-I$(Z_INCLUDE_DIR)
 
 # SOURCE FILES
 # Repast HPC
@@ -143,7 +150,7 @@ $(ZOMBIE_EXE): $(REPAST_HPC_LIB) $(RELOGO_LIB) $(ZOMBIE_OBJECTS)
 	mkdir -p ../ext/bin
 	cp $(ZOMBIE_DIR)/config.props ../ext/bin/zombie_config.props
 	cp $(ZOMBIE_DIR)/model.props ../ext/bin/zombie_model.props
-	scalasca -instrument $(CXXLD) -L../ext/lib/ $(L_BOOST) $(L_NETCDF) $(L_CURL) $(ZOMBIE_OBJECTS) -o $(ZOMBIE_EXE) $(l_CURL) $(l_RELOGO) $(l_REPAST_HPC) $(l_NETCDF) $(l_BOOST) 
+	scalasca -instrument $(CXXLD) -L../ext/lib/ $(L_BOOST) $(L_NETCDF) $(L_CURL) $(L_HDF5) $(ZOMBIE_OBJECTS) -o $(ZOMBIE_EXE) $(l_CURL) $(l_RELOGO) $(l_REPAST_HPC) $(l_NETCDF) $(l_BOOST) $(l_HDF5) 
 
 # User-friendly names
 .PHONY : repast_hpc
@@ -192,7 +199,7 @@ distclean: clean
 
 # Object files are built from cpp files
 %.o:
-	scalasca -instrument $(CXX) -fPIC -c $(I_BOOST) $(I_NETCDF) $(I_CURL) -I$(SRC_DIR) -g0 -O3 -o $@ $*.cpp
+	scalasca -instrument $(CXX) -fPIC -c $(I_BOOST) $(I_NETCDF) $(I_CURL) $(I_HDF5) $(I_SZIP) -I$(SRC_DIR) -g0 -O3 -o $@ $*.cpp
 	
 # Cancel implicit rule for name with no suffix, to avoid confusing output:
 %: %.o

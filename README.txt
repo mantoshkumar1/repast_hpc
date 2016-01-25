@@ -18,7 +18,7 @@ $ git clone https://gitlab.lrz.de/ga78boj/hpcLabProjectRepastHPC.git
 **************************************************************************************
 2. How to build the system
 **************************************************************************************
-(Patience: It would take around 15-20 minutes)
+(Patience: It would take around 20-25 minutes)
 
 $ cd hpcLabProjectRepastHPC/INSTALLATION
 $ sh ./build_lib.sh

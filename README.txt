@@ -21,7 +21,7 @@ $ git clone https://gitlab.lrz.de/ga78boj/hpcLabProjectRepastHPC.git
 (Patience: It would take around 15-20 minutes)
 
 $ cd hpcLabProjectRepastHPC/INSTALLATION
-$ ./build_lib.sh
+$ sh ./build_lib.sh
 $ make -f Makefile all
 $ cd ../ext/bin/
 $ cp ../../scripts/*  ./
@@ -63,4 +63,8 @@ $ cd scorep_zombie_model_NUM_PROCESS_sum
 (Note: NUM_PROCESS is an integer that we had calculated in above step)
 
 $ cube profile.cubex
+
+
+
+Note: All execution results get saved in "hpcLabProjectRepastHPC/ext/bin/collected_data" directory.
 

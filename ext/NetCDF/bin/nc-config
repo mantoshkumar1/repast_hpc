@@ -4,13 +4,13 @@
 # various things about the netCDF installation. This code was
 # contributed by netCDF user Arlindo DaSilva. Thanks Arlindo!
 
-prefix=/home/hpc/t1221/t1221an/hallabol/hpcLabProjectRepastHPC/ext/NetCDF
+prefix=/home/hpc/t1221/t1221an/cpluscode/hpcLabProjectRepastHPC/ext/NetCDF
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
 
 cc="gcc"
-cflags=" -I${includedir} -I/home/hpc/t1221/t1221an/hallabol/hpcLabProjectRepastHPC/ext/CURL/include" 
+cflags=" -I${includedir} -I/home/hpc/t1221/t1221an/cpluscode/hpcLabProjectRepastHPC/ext/CURL/include" 
 libs="-L${libdir} -lnetcdf"
 has_dap="yes"
 has_nc2="yes"

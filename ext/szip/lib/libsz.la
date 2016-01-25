@@ -32,4 +32,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/home/hpc/t1221/t1221an/hallabol/hpcLabProjectRepastHPC/ext/szip/lib'
+libdir='/home/hpc/t1221/t1221an/cpluscode/hpcLabProjectRepastHPC/ext/szip/lib'

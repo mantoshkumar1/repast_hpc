@@ -26,7 +26,7 @@
 ## then modify them accordingly to represent the new paths.               ##
 ##                                                                        ##
 ############################################################################
-prefix="/home/hpc/t1221/t1221an/hallabol/hpcLabProjectRepastHPC/ext/hdf5"
+prefix="/home/hpc/t1221/t1221an/cpluscode/hpcLabProjectRepastHPC/ext/hdf5"
 exec_prefix="${prefix}"
 libdir="${exec_prefix}/lib"
 includedir="${prefix}/include"
@@ -93,7 +93,7 @@ CLINKERBASE="/lrz/sys/intel/impi/5.0.3.048/lrzbin/mpicc"
 # to the user's flags.
 H5BLD_CFLAGS=" "
 H5BLD_CPPFLAGS="-D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE  "
-H5BLD_LDFLAGS=" -L/home/hpc/t1221/t1221an/hallabol/hpcLabProjectRepastHPC/ext/szip/lib/lib "
+H5BLD_LDFLAGS=" -L/home/hpc/t1221/t1221an/cpluscode/hpcLabProjectRepastHPC/ext/szip/lib/lib "
 H5BLD_LIBS="-lz -ldl -lm "
 
 CC="${HDF5_CC:-$CCBASE}"

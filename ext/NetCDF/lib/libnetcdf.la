@@ -17,7 +17,7 @@ old_library='libnetcdf.a'
 inherited_linker_flags=''
 
 # Libraries that this one depends upon.
-dependency_libs=' -L/home/hpc/t1221/t1221an/hallabol/hpcLabProjectRepastHPC/ext/CURL/lib -lm /home/hpc/t1221/t1221an/hallabol/hpcLabProjectRepastHPC/ext/CURL/lib/libcurl.la -lidn -lssl -lcrypto -ldl -lz -lrt'
+dependency_libs=' -L/home/hpc/t1221/t1221an/cpluscode/hpcLabProjectRepastHPC/ext/CURL/lib -lm /home/hpc/t1221/t1221an/cpluscode/hpcLabProjectRepastHPC/ext/CURL/lib/libcurl.la -lidn -lssl -lcrypto -ldl -lz -lrt'
 
 # Names of additional weak libraries provided by this library
 weak_library_names=''
@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/home/hpc/t1221/t1221an/hallabol/hpcLabProjectRepastHPC/ext/NetCDF/lib'
+libdir='/home/hpc/t1221/t1221an/cpluscode/hpcLabProjectRepastHPC/ext/NetCDF/lib'

@@ -53,9 +53,17 @@
 using namespace repast::relogo;
 using namespace repast;
 
-struct CountZombiesOnPatch {
+/*struct CountZombiesOnPatch {
 	double operator()(const Patch* patch) const {
 		AgentSet<Zombie> set;
+		patch->turtlesOn(set);
+		return set.size();
+	}
+};
+*/
+struct CountHumansOnPatch {
+	double operator()(const Patch* patch) const {
+		AgentSet<Human> set;
 		patch->turtlesOn(set);
 		return set.size();
 	}
@@ -87,7 +95,8 @@ void Human::step() {
 	if (alive) {
 		// are there any zombies in the ngh
 		AgentSet<Patch> nghs = patchHere<Patch> ()->neighbors<Patch> ();
-		Patch* winningPatch = nghs.minOneOf(CountZombiesOnPatch());
+		//Patch* winningPatch = nghs.minOneOf(CountZombiesOnPatch());
+		Patch* winningPatch = nghs.maxOneOf(CountHumansOnPatch());
 		face(winningPatch);
 //		double distanceToMove = 1.5; // For non-toroidal worlds, need to check to make sure move is not out of bounds
 //		while((_observer->patchAtOffset(location(), heading(), distanceToMove) == 0) && (distanceToMove > 0)) distanceToMove--;

@@ -1,5 +1,8 @@
+##
+##**Adopted from https://github.com/scamicha/SCC15HPCRepast**
+##
 #random.seed = 1284067381
-stop.at =20
+stop.at =100
 
 # per process
 human.count = 5000;
@@ -13,8 +16,8 @@ max.y = 99
 grid.buffer = 2
 
 # these must multiply to total number of processes
-proc.per.x = 2 #process in x axis
-proc.per.y = 2 #process in y axis
+proc.per.x = 4 #process in x axis
+proc.per.y = 4 #process in y axis
 
 # population input/output files
 human.input.file = human.h5

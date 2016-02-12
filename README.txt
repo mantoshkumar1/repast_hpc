@@ -1,3 +1,5 @@
+**Adopted from https://github.com/scamicha/SCC15HPCRepast**
+
 ****************************** Target Machine : lxlogin5.lrz.de **********************
 *******  How to use the system *******
 1. How to fetch the code

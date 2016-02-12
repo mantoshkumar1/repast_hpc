@@ -1,4 +1,7 @@
 /*
+**
+**Adopted from https://github.com/scamicha/SCC15HPCRepast**
+**
  *   Repast for High Performance Computing (Repast HPC)
  *
  *   Copyright (c) 2010 Argonne National Laboratory

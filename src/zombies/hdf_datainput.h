@@ -1,4 +1,7 @@
 /*
+**
+**Adopted from https://github.com/scamicha/SCC15HPCRepast**
+**
  *      HDF5 Read
  *      Created for SC 15 Student Cluster competition.
  *      Author: Byung H. Park, Oak Ridge National Laboratory

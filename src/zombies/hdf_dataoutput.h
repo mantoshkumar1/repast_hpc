@@ -1,4 +1,7 @@
 /*
+**
+**Adopted from https://github.com/scamicha/SCC15HPCRepast**
+**
  *
  * HDF5 Write
  * Created for SC15 Student Cluster Competition.

@@ -1,4 +1,7 @@
 /**
+**
+**Adopted from https://github.com/scamicha/SCC15HPCRepast**
+**
  *
  * Created for SC15 Student Cluster Competetion.
  *
